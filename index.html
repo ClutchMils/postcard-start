@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width">
     <title>Postcard example</title>
     <style>
-      @font-face {
-        font-family: "handwriting";
-        src:
-          url("fonts/journal-webfont.woff2") format("woff2"),
-          url("fonts/journal-webfont.woff") format("woff");
+     @font-face {
+        font-family: 'Mom \'sTypewriter';
+        src: url('MomsTypewriter.woff2') format('woff2'),
+            url('MomsTypewriter.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
       }
 
       @font-face {
-        font-family: "typewriter";
-        src:
-          url("fonts/momot___-webfont.woff2") format("woff2"),
-          url("fonts/momot___-webfont.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
+          font-family: 'Journal';
+          src: url('Journal.woff2') format('woff2'),
+              url('Journal.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
       }
+
 
       body {
         font: 1.3rem sans-serif;
@@ -85,25 +86,61 @@
         background: rgb(0 0 0 /10%);
         border-radius: 5px;
       }
+
+      textarea {
+        display: block;
+
+        padding: 10px;
+        margin: 10px 0 0 -10px;
+        width: 100%;
+        height: 90%;
+
+        border-right: 1px solid;
+
+        /* resize  : none; */
+        overflow: auto;
+      }
+
+      button {
+        padding: 5px;
+        font: bold 0.6em sans-serif;
+        border: 2px solid #333333;
+        border-radius: 5px;
+        background: none;
+        cursor: pointer;
+        transform: rotate(-1.5deg);
+      }
+
+      button::after {
+        content: " >>>";
+      }
+
+      button:hover,
+      button:focus {
+        background: black;
+        color: white;
+      }
+
     </style>
   </head>
 
 <body>
-  <form >
+  <form>
     <h1>to: Mozilla</h1>
-    <div; id ="from">
+
+    <div id="from">
       <label for="name">from:</label>
-      <input type="text" name="name" id="user_name">
+      <input type="text" id="name" name="user_name" />
     </div>
 
     <div id="reply">
       <label for="mail">reply:</label>
-      <input type="email" id="mail" name="user_email">
+      <input type="email" id="mail" name="user_email" />
     </div>
 
     <div id="message">
       <label for="msg">Your message:</label>
-      <textarea name="user_message" id="msg"></textarea>
+      <textarea id="msg" name="user_message"></textarea>
     </div>
 
     <div class="button">
